@@ -23,14 +23,16 @@
             <a onclick="showClient()" class="nav-link"><i class="fa fa-user-o fa-lg"></i><span class="collapse" name="linkLabel">Client</span></a>
           </li>
           <li class="nav-item">
-            <a onclick="showInteraction()" class="nav-link"><i class="fa fa-exchange fa-lg"></i><span class="collapse" name="linkLabel">Interaction</span></a>
+            <a onclick="showInteraction()" class="nav-link"><i class="fa fa-exchange fa-lg"></i><span class="collapse"
+                name="linkLabel">Interaction</span></a>
           </li>
           <li class="nav-item">
             <a onclick="showRequest()" class="nav-link"><i class="fa fa-bullhorn fa-lg"></i><span class="collapse" name="linkLabel">Service
                 request</span></a>
           </li>
           <li class="nav-item">
-            <a class="nav-link"><i class="fa fa-history fa-lg"></i><span class="collapse" name="linkLabel">Client
+            <a onclick="showClientHistory()" class="nav-link"><i class="fa fa-history fa-lg"></i><span class="collapse"
+                name="linkLabel">Client
                 history</span></a>
           </li>
           <li class="nav-item">
@@ -39,7 +41,7 @@
         </ul>
       </div>
 
-      <div class="col" id="client">
+      <div class="col show" id="client">
         <div class="row mt-4">
           <div class="col-md-6">
             <div class="card shadow">
@@ -183,13 +185,7 @@
                       <label class="text-muted" for="wrapUpCode">WrapUpCode</label>
                       <select class="form-control" name="wrapUpCode" id="wrapUpCode">
                         <option>
-                          code1
-                        </option>
-                        <option>
-                          code2
-                        </option>
-                        <option>
-                          code3
+
                         </option>
                       </select>
                     </div>
@@ -369,6 +365,26 @@
           </div>
         </div>
       </div>
+      <div class="col collapse" id="clientHistory">
+        <div class="row mt-2">
+          <div class="col-md-4">
+            <div class="card shadow">
+              <div class="card-body">
+                <h4 id="dealing-with-specificity">Client History</h4>
+                <div class="list-group">
+                  <div>
+                    <div>
+                      <div class="card card-body">
+
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
       <div class="col collapse" id="greenMile">
         <div class="row fullHeiht">
           <div class="col-12 col-sm-12 col-md-12 col-lg-12">
@@ -406,7 +422,7 @@
   let client = document.getElementById('client');
   let interaction = document.getElementById('interaction');
   let serviceRequest = document.getElementById('serviceRequest');
-  //let clientHistory = document.getElementById('clientHistory');
+  let clientHistory = document.getElementById('clientHistory');
   const show = 'col show';
   const collapse = 'col collapse';
 
@@ -435,11 +451,19 @@
     }
   }
   function showClient() {
-        for (var i = 0; i < views.length; i++) {
-            {
-                views[i].className = collapse;
-            };
-            client.className = show;
-        }
+    for (var i = 0; i < views.length; i++) {
+      {
+        views[i].className = collapse;
+      };
+      client.className = show;
     }
+  }
+  function showClientHistory() {
+    for (var i = 0; i < views.length; i++) {
+      {
+        views[i].className = collapse;
+      };
+      clientHistory.className = show;
+    }
+  }
 </script>
